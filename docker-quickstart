@@ -2,7 +2,6 @@
 
 DAEMONS="\
     mysqld \
-    ntpd \
     cloudera-quickstart-init"
 
 if [ -e /var/lib/cloudera-quickstart/.kerberos ]; then
@@ -48,7 +47,7 @@ for daemon in ${DAEMONS}; do
 done
 
 /home/cloudera/cloudera-manager --express
-sudo service ntpd start
-
+#sudo service ntpd start
+echo "Keeping the container running with 'tail -f /dev/null' command..."
 # keep container running
 exec tail -f /dev/null

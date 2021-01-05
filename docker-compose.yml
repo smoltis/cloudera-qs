@@ -45,6 +45,10 @@ services:
       - "9083:9083"
     entrypoint: "/usr/bin/docker-quickstart"
     volumes:
-      - /var/lib/hadoop-hdfs/cache/hdfs/dfs/name
-      - /var/lib/hadoop-hdfs/cache/hdfs/dfs/data
+      - cloudera-hdfs-name:/var/lib/hadoop-hdfs/cache/hdfs/dfs/name
+      - cloudera-hdfs-data:/var/lib/hadoop-hdfs/cache/hdfs/dfs/data
       - ./docker-quickstart:/usr/bin/docker-quickstart:ro
+
+volumes:
+  cloudera-hdfs-name:
+  cloudera-hdfs-data:
